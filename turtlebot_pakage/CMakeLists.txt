@@ -10,6 +10,7 @@ project(turtlebot_pakage)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   geometry_msgs
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -126,6 +127,10 @@ add_dependencies(turtlebot_initialpose_node ${${PROJECT_NAME}_EXPORTED_TARGETS} 
 add_executable(turtlebot_goal_node src/turtlebot_goal.cpp)
 target_link_libraries(turtlebot_goal_node ${catkin_LIBRARIES})
 add_dependencies(turtlebot_goal_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(turtlebot_map_change_node src/turtlebot_map_change.cpp)
+target_link_libraries(turtlebot_map_change_node ${catkin_LIBRARIES})
+add_dependencies(turtlebot_map_change_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
